@@ -1,0 +1,631 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rename",
+				"RenameType	class"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"def",
+				"defs	Method"
+			],
+			[
+				"colour",
+				"colourId"
+			],
+			[
+				"dec",
+				"getB64DecryptText"
+			],
+			[
+				"filename",
+				"file_name"
+			],
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"bmdb",
+				"BMDBSession"
+			],
+			[
+				"cry",
+				"cryptor_text"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"tips",
+				"tipsobject1"
+			],
+			[
+				"and",
+				"Android"
+			],
+			[
+				"new",
+				"newInputList"
+			],
+			[
+				"__",
+				"__py_version2"
+			],
+			[
+				"__py",
+				"__py_version3"
+			],
+			[
+				"ou",
+				"outputText"
+			],
+			[
+				"trans",
+				"translate"
+			],
+			[
+				"g7",
+				"G7Translator"
+			],
+			[
+				"out",
+				"outputFile"
+			],
+			[
+				"outputfil",
+				"outputFile"
+			],
+			[
+				"G7",
+				"G7Translate"
+			],
+			[
+				"base",
+				"base64Decode"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"installpa",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"ip",
+				"Snippet: Lorem ipsum"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/configure",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/static",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/template",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/template/index",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/django",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/nginx",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/supervisor",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/tornado"
+	],
+	"file_history":
+	[
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/supervisor/tornado.log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/supervisor/out.log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/uwsgi/backend_profile.xml",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/settings.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/Globals.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/Services.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/django/django.log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/gyrfalcon/variable.conf",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/nginx_bsd.conf",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/nginx.conf.source",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/configure/GlobalConfigure.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/supervisor/supervisor.conf",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Index/GFIndexReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/__init__.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Index/__init__.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/GyrfalconShell.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/GyrfalconStop.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/tools/djangoinitial.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/tools/shell.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/configure/__init__.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/__init__.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/GyrfalconStart.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Linux/GyrfalconStart.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Darwin/GyrfalconStart.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/GyrfalconRestart.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/main.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/tornado/tornado.log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/gyrfalcon/gyrfalcon.conf.template",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Darwin/GyrfalconInitial.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Darwin/packages/Python-3.4.3.tgz",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Darwin/packages/supervisor-3.2.0.tar.gz",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Darwin/packages/uwsgi-2.0.12.tar.gz",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Linux/packages/Python-3.4.3.tgz",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Linux/packages/supervisor-3.2.0.tar.gz",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Linux/packages/uwsgi-2.0.12.tar.gz",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/wsgi.py",
+		"/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/xml/dom/minidom.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/configure/NginxSettings.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/configure/TornadoNginxSettings.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/configure/DjangoNginxSettings.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/log/access.log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/log/error.log",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/configure/Urls.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/tools/results/ResultAsistances.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/tools/database/DBSession.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Common/GFReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/configure/Results.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Account/GFUserSystems.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/tools/cryptor/CryptorTools.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Common/BMReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/platforms/Linux/GyrfalconInitial.command",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/admin.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/models.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0001_initial.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0002_auto_20160204_1728.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0003_auto_20160205_0954.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0004_auto_20160304_0941.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0005_auto_20160304_0941.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0006_auto_20160304_1558.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0007_auto_20160304_1558.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0008_auto_20160304_1558.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0009_auto_20160304_1559.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0010_auto_20160304_1603.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0011_auto_20160304_1606.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0012_auto_20160304_1607.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0013_auto_20160304_1607.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Account/BMLoginReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Account/BMRegisterReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Account/BMUserReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Account/BMUserSystemReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Account/BMUserSystems.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Common/BMAPIReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/engine/tools/gfplatformshell.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Common/BMWebReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/site/Index/BMIndexReqHandlers.py",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/nginx.conf",
+		"/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/gyrfalcon/gyrfalcon.conf",
+		"/Users/yuyang/workspace/demo/MagicalRecordDemo/Podfile",
+		"/Users/yuyang/workspace/project/Translate/Apple/OSX/Transcoding/Podfile",
+		"/Users/yuyang/bug/response.html",
+		"/Users/yuyang/bug/bug.txt",
+		"/Users/yuyang/test.html",
+		"/Users/yuyang/workspace/project/Doji/test/Doji_iOS/Doji/renamefile.py",
+		"/Users/yuyang/renamefile.py",
+		"/Users/yuyang/workspace/project/Doji/Doji_iOS/Podfile",
+		"/Users/yuyang/workspace/project/Doji/Doji_iOS/Doji/Podfile.lock",
+		"/Users/yuyang/workspace/gao7/gao7git/TDProducts/tdvrvideo/Podfile.lock",
+		"/Users/yuyang/workspace/gao7/gao7git/TDModules/tddownloader/TDDownloader.podspec",
+		"/Users/yuyang/workspace/project/DOne/code/Apple/trunk/done_apple/DOne/Podfile",
+		"/Users/yuyang/workspace/project/MBGit/MBSDK/MBCamera/README.md",
+		"/Users/yuyang/workspace/project/MBGit/MBSDK/MBCamera/MBCamera/README.md",
+		"/Users/yuyang/workspace/project/Foreigner/MBForeigner/Web/README.md",
+		"/Users/yuyang/workspace/project/Foreigner/MBForeigner/UI/README.md",
+		"/Users/yuyang/workspace/project/Foreigner/MBForeigner/iOS/README.md",
+		"/Users/yuyang/workspace/project/Foreigner/MBForeigner/Document/README.md",
+		"/Users/yuyang/workspace/project/Foreigner/MBForeigner/Android/README.md",
+		"/Users/yuyang/workspace/project/Foreigner/MBForeigner/iOS/MBForeigner/Podfile",
+		"/Users/yuyang/.ssh/id_rsa.pub",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/main/bmadmin/bmadmin/settings.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/home/contact.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/home/about.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/main/site/Index/BMIndexReqHandlers.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/profile/settings/web/BMURLs.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/home/product_list.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/home/single.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/base/header.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/base/nav_header.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/main/site/Index/BMProductListReqHandlers.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/localization/index.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/base/footer.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/main/site/Transform/BMTransformReqHandlers.py",
+		"/Users/yuyang/Library/Application Support/Karabiner/private.xml",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/profile/settings/BMSettings.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/template/home/transcode.html",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/profile/nginx/bmplatform/bmplatform.conf.template",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/main/site/Feedback/BMFeedbackReqHandlers.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/log/supervisor/out.log",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/main/bmadmin/Feedback/models.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/Transcoding.sublime-project",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/BMPlatform/profile/BMServices.py",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/profile/supervisor/supervisor.conf",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/profile/uwsgi/bmadmin_profile.xml",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/shell/platforms/Darwin/BMPlatformInitial.command",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/shell/platforms/Darwin/BMPlatformShell.command",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/shell/platforms/Darwin/BMPlatformStart.command",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/shell/platforms/Darwin/BMPlatformStop.command",
+		"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/shell/platforms/Darwin/tools/bmplatformshell.py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"<current file>",
+			"",
+			"<current file>",
+			"",
+			"Gy*.py",
+			"BM*.py",
+			"",
+			"<current file>",
+			"",
+			"<current file>",
+			"",
+			"python3",
+			"/Users/yuyang/workspace/project/Translate/Web/transcoding/trunk/BMPlatform/workspace/shell",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"8982",
+			"SECRET_KEY",
+			"Gyrfalcon.configure.GlobalConfigure",
+			"gfplatformshell",
+			"Gyrfalcon.py",
+			"main.py",
+			"tornadoServerStart",
+			"Gyrfalcon.configure.GlobalConfigure",
+			"G7Platform",
+			"G7",
+			"g7",
+			"Gyrfalcon.service.Services",
+			"SSL",
+			"ssl",
+			"zlib",
+			"ssl",
+			"_profile.xml",
+			"nginx.pid",
+			"open(xmlpath,'w')",
+			"bmAdmingXmlPath",
+			"bmAdminXmlBuilder",
+			"profile_path",
+			"superBMVisorBMConfPath",
+			"nginxBMConfPath",
+			"self.superBMVisorBMConfPath",
+			"nginx_project_conf_path",
+			"nginxConfigure",
+			"path.join(nginx_project_conf_path,project_name.lower()+",
+			"nginx_bm_conf_path",
+			"nginx_gf_conf_path",
+			"nginx_bm_conf_path",
+			"BMDjangoNginxSetting",
+			"Gyrfalcon.GlobalConfigure.settings.BMSettings",
+			"service.configure.nginx",
+			"gfNginxConfPath",
+			"BMTornadoNginxSetting",
+			"GFDjangoNginxSetting",
+			"GFNginxSetting",
+			"Gyrfalcon.configure.nginx",
+			"Gyrfalcon.main.site.Test",
+			"GFResultAsistance",
+			"GFResultDic",
+			"GFResultAsistance",
+			"Gyrfalcon.tools.results.GFResultAsistances",
+			"Gyrfalcon.core",
+			"Gyrfalcon.core.database",
+			"GFDBSession",
+			"Gyrfalcon.main.site.Index.GFIndexReqHandlers",
+			"Gyrfalcon.configure.web.BMURLs",
+			"Gyrfalcon.configure.web",
+			"Gyrfalcon.configure.Services",
+			"Gyrfalcon.configure.settings",
+			"GFGlobals",
+			"Gyrfalcon.py",
+			"Gyrfalcon/engine/",
+			"BMIndexReqHandlers",
+			"BM",
+			"bm",
+			"BMResultAsistances",
+			"BMDBSession",
+			"BMAPIReqHandler",
+			"BMWebReqHandlers",
+			"BMAPIReqHandlers",
+			"BMIndexReqHandler",
+			"BMWebReqHandler",
+			"BMReqHandlers",
+			"BMReqHandler",
+			"BMResults",
+			"BMResultAsistance",
+			"BMResultDic",
+			"BM",
+			"bmlog",
+			"bm",
+			"BM",
+			"BMNginxSetting",
+			"bmNginxConfPath",
+			"bmMakeDirs",
+			"BM",
+			"BMUser",
+			"bmInstall",
+			"allow",
+			"transform_options",
+			"/usr/local/bin/python3",
+			"python3",
+			"ec2-user",
+			"/usr/local/bin/pip3",
+			"/usr/local/bin/python3",
+			"pep8_ignore",
+			"complete_parameters",
+			"python",
+			"setting",
+			"python",
+			"BMServices",
+			"python",
+			"G7",
+			"httpHeadersJson",
+			"responseDataText",
+			"resultErrorDataWrapperToJson",
+			"responseWrite",
+			"data",
+			"file_name",
+			"operationHistory",
+			"BMDBManagers",
+			"bmdbmanager",
+			"bmdbmanagers",
+			"base64Decode",
+			"cryptor_types",
+			"***cryptor***",
+			"getB64DecryptText",
+			"base64Decode",
+			"getB64DecryptText",
+			"startServer",
+			"Tornado-Server Starts On ",
+			"tornadoServerStart",
+			"Commons",
+			"Records",
+			"Lists",
+			"Indexs",
+			"Commons",
+			"Accounts",
+			"debug",
+			"g7",
+			"BM",
+			"group",
+			"djangoload",
+			"print",
+			"g7",
+			"G7"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Gyrfalcon",
+			"gf",
+			"admingXmlPath",
+			"adminXmlBuilder",
+			"superProjectVisorProjectConfPath",
+			"nginxProjectConfPath",
+			"nginxConfPath",
+			"TornadoNginxSetting",
+			"DjangoNginxSetting",
+			"NginxSetting",
+			"ResultDic",
+			"ResultAsistance",
+			"Gyrfalcon.tools",
+			"DBSession",
+			"Gyrfalcon.service.Services",
+			"Gyrfalcon.configure",
+			"GFResultAsistances",
+			"GFDBSession",
+			"GFAPIReqHandler",
+			"GFWebReqHandlers",
+			"GFAPIReqHandlers",
+			"GFIndexReqHandler",
+			"GFWebReqHandler",
+			"GFReqHandlers",
+			"GFReqHandler",
+			"GFResults",
+			"GFResultAsistance",
+			"GFResultDic",
+			"gflog",
+			"gf",
+			"GFNginxSetting",
+			"gfNginxConfPath",
+			"gfMakeDirs",
+			"GFUser",
+			"gfInstall",
+			"python3",
+			"/usr/local/bin/python3",
+			"pip3",
+			"python3",
+			"Common",
+			"bm",
+			"BM",
+			"frameworks",
+			"tags"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Gyrfalcon.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"bmserve",
+				"BMPlatform/profile/BMServices.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 320.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

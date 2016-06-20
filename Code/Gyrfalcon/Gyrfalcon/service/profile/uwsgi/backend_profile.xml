@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<uwsgi>
+	<master>true</master>
+	<pythonpath>/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/</pythonpath>
+	<py-programname>python3</py-programname>
+	<daemonize>/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/workspace/log/django/django.log</daemonize>
+	<enable-threads>true</enable-threads>
+	<chdir>/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend</chdir>
+	<processes>8</processes>
+	<listen>80</listen>
+	<pythonpath>/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/</pythonpath>
+	<socket>127.0.0.1:8982</socket>
+	<pythonpath>/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon</pythonpath>
+	<module>wsgi</module>
+	<plugin>/usr/local/lib/uwsgi/py34_plugin.so</plugin>
+	<profiler>true</profiler>
+	<memory-report>true</memory-report>
+	<pidfile>/Users/yuyang/workspace/project/Gyrfalcon/Gyrfalcon/Gyrfalcon/service/profile/nginx/pid/nginx.pid</pidfile>
+	<limit-as>512</limit-as>
+	<logdate>true</logdate>
+</uwsgi>
