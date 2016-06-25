@@ -26,8 +26,9 @@ Mac OSX 10.10， Linux
 
 ```
 
-0.0 根目录 - Gyrfalcon: 项目根路径，包含整个项目所有开发所需要的路径。
-          - Gyrfalcon.sublime-project: SublimeText3 项目文件 
+0.0 根目录 
+- Gyrfalcon: 项目根路径，包含整个项目所有开发所需要的路径。
+- Gyrfalcon.sublime-project: SublimeText3 项目文件 
 
 1.0 项目主目录
 - Gyrfalcon: 项目根路径，包含整个项目所有开发所需要的路径。
