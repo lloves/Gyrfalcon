@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 __author__ = 'yuyang'
 
-
+# 接口结果信息码对接池
 ResultDic = {
 
     0     : "",

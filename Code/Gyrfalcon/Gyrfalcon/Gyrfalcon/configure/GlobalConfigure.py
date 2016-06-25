@@ -5,7 +5,12 @@ import os
 from os import path
 import sys
 
+# 创建目录或者文件
 def gfMakeDirs(path_name, touch_file=False):
+	'''
+	path_name: 对应文件目录名
+	touch_file: 是否创建文件，True=创建文件，False=创建目录
+	'''
 	if len(os.path.splitext(path_name)[1]) > 0:
 		if os.path.exists(os.path.dirname(path_name)) == False:
 			os.makedirs(os.path.dirname(path_name), exist_ok=True)
@@ -21,13 +26,18 @@ debug = False
 
 # 端口
 
+######################## 测试模式 ########################
+
+#  测试模式下tornado端口
 debug_tornado_port = 8984
+#  测试模式下django端口
 debug_django_port = 8981
 
-release_tornado_port = 8983
+######################## 正式模式 ########################
+# 正式模式下django端口
 release_django_port = 8982
 
-# tornado进程端口
+# 正是模式下tornado进程端口
 tornado_ports = [
 	8991,
 	8992,
@@ -46,7 +56,7 @@ django_project_name="backend"
 ######################## 路径 ###########################
 
 # 项目路径
-project_path = path.realpath(path.join(path.dirname(__file__), "../../../"+project_name))
+project_path = path.realpath(path.join(path.dirname(__file__), "../../"))
 gfMakeDirs(project_path)
 
 # 核心代码路径
@@ -111,28 +121,32 @@ if osname == "Darwin":
 	nginx_conf_path = path.join(nginx_path, "nginx_bsd.conf")
 gfMakeDirs(nginx_conf_path)
 
-# nginx GF配置文件路径
+# nginx 配置文件路径
 nginx_project_conf_path = path.join(nginx_path, project_name.lower())
 gfMakeDirs(nginx_project_conf_path)
 
+# tornado 日志路径
 tornado_log_path = path.join(log_path,"tornado/tornado.log")
 gfMakeDirs(tornado_log_path, touch_file=True)
 
 # django管理器路径
 django_manage_path = path.join(django_path,"manage.py")
 
-
-
-
 ########################### 数据库 ###########################
 
 # 数据库命名不能超过14个长度
 if debug == False:
+########################### 测试模式 ###########################
+	# 数据库地址
 	dbhost = "localhost"
+	# 数据库名称
 	dbname = "Gyrfalcon"
+	# 数据库用户名
 	dbuser = "Gyrfalcon"
+	# 数据库密码
 	dbpassword = "Gyrfalcon_pwd"
 else:
+########################### 正式模式 ###########################
 	dbhost = "localhost"
 	dbname = "Gyrfalcon"
 	dbuser = "Gyrfalcon"
@@ -140,5 +154,5 @@ else:
 
 
 ######################## 其他 ###############################
-
+# des加密密码
 desPassword = "bfae43b0"
