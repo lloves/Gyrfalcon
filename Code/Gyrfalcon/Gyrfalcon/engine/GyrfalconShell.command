@@ -7,7 +7,6 @@ dirPath=$(cd `dirname $0`; pwd);
 cd $dirPath/../..;
 
 sudo chown -R $USER $dirPath/../..;
-
-$dirPath/GyrfalconRestart.command;
-export PYTHONPATH=$PYTHONPATH:$(cd $dirPath/../; pwd);
+sh $dirPath/GyrfalconRestart.command;
+export PYTHONPATH=$PYTHONPATH:$(cd $dirPath/..; pwd);
 python3 $dirPath/tools/shell.py $0 $1 $2;

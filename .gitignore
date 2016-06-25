@@ -247,3 +247,11 @@ Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/.DS_Store
 Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/.DS_Store
 Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/__pycache__
 Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/.DS_Store
+Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0139_auto_20160625_1542.py
+Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0140_auto_20160625_1542.py
+Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0141_auto_20160625_1547.py
+Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0142_auto_20160625_1550.py
+Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0143_auto_20160625_1551.py
+Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0144_auto_20160625_2019.py
+Code/Gyrfalcon/supervisord.pid
+Code/Gyrfalcon/Gyrfalcon/engine/supervisord.pid

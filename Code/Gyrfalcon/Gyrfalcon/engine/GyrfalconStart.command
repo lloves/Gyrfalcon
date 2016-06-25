@@ -6,7 +6,7 @@ sysOS=`uname -s`;
 # 当前路径
 dirPath=$(cd `dirname $0`; pwd);
 
-sh platforms/$sysOS/GyrfalconStart.command $dirPath $sysOS;
+sh $dirPath/platforms/$sysOS/GyrfalconStart.command $dirPath $sysOS;
 
 python3 $dirPath/../Gyrfalcon/Gyrfalcon.py;
 
