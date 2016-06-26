@@ -207,7 +207,7 @@ class DebugServer(Server):
 
     def djangoServerStart(self,port):
         manage_path = path.join(django_path, "manage.py")
-        os.system("python3 {manage_path} runserver 0.0.0.0:{debug_django_port} &".format(project_path=project_path,django_path=django_path,manage_path=manage_path,debug_django_port=port))
+        os.system("python3 {manage_path} runserver 0.0.0.0:{debug_django_port}".format(project_path=project_path,django_path=django_path,manage_path=manage_path,debug_django_port=port))
 
     def startServer(self):
         #启动配置，
@@ -225,8 +225,8 @@ class DatabaseServer(Server):
 
     def startConfigure(self):
         manage_path = path.join(django_path, "manage.py")
-        os.system("python3 {manage_path} makemigrations 2>/dev/null;".format(project_path=project_path,django_path=django_path,manage_path=manage_path))
-        migrateid=os.system("python3 {manage_path} migrate 2>/dev/null;".format(project_path=project_path,django_path=django_path,manage_path=manage_path))
+        os.system("python3 {manage_path} makemigrations;".format(project_path=project_path,django_path=django_path,manage_path=manage_path))
+        migrateid=os.system("python3 {manage_path} migrate;".format(project_path=project_path,django_path=django_path,manage_path=manage_path))
         if migrateid != 0:
             print("输入mysql中root用户密码:")
             script = "mysql -h {dbhost} -u root -Bse \"insert into mysql.user(Host,User,Password) values('{dbhost}','{dbuser}',password('{dbpassword}'));grant all on *.* to {dbuser}@{dbhost};flush privileges;\" -p 2>/dev/null".format(dbhost=dbhost,dbname=dbname,dbuser=dbuser,dbpassword=dbpassword)
