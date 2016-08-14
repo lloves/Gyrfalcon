@@ -257,3 +257,4 @@ Code/Gyrfalcon/supervisord.pid
 Code/Gyrfalcon/Gyrfalcon/engine/supervisord.pid
 Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Account/migrations/0145_auto_20160625_2220.py
 Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/Index/migrations/0003_delete_book.py
+*_auto_*_*.py
