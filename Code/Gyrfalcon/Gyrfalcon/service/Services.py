@@ -33,7 +33,7 @@ class ReleaseServer(Server):
             gfMakeDirs(os.path.join(nginx_path, "logs/error.log"), touch_file=True)
             gfMakeDirs(os.path.join(nginx_path, "logs/access.log"), touch_file=True)
 
-        if "centos" in platform.platform():
+        if "redhat" in platform.platform() or "centos" in platform.platform():
             replacedText = ""
             with open(nginx_conf_path, "r") as f:
                 import getpass
@@ -44,7 +44,6 @@ class ReleaseServer(Server):
 
         # 配置文件生成
         self.startConfigure()
-
 
     def nginxSetSyntax(self, key,value):
         return "map $args {key} {{ default {value}; }}\n".format(key=key ,value=value)
@@ -235,7 +234,6 @@ class DatabaseServer(Server):
             dbCreate = os.system(createDBSQL)
             os.system("python3 {manage_path} makemigrations;".format(project_path=project_path,django_path=django_path,manage_path=manage_path))
             makemigrateid=os.system("python3 {manage_path} migrate;".format(project_path=project_path,django_path=django_path,manage_path=manage_path))
-
 
     def startServer(self):
         self.startConfigure()
