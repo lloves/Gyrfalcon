@@ -3,7 +3,9 @@ __author__ = 'yuyang'
 
 import os
 from os import path
+import platform
 import tornado
+from shutil import copyfile
 from xml.dom.minidom import Document
 from Gyrfalcon.configure.GlobalConfigure import *
 from Gyrfalcon.configure.Urls import urlList
@@ -26,12 +28,12 @@ class ReleaseServer(Server):
         self.nginxProjectConfPath = nginx_project_conf_path
         self.superProjectVisorProjectConfPath = path.join(service_profile_path,"supervisor")
         gfMakeDirs(self.superProjectVisorProjectConfPath)
-        gfMakeDirs(os.path.join(nginx_path, "log/error.log"), touch_file=True)
-        gfMakeDirs(os.path.join(nginx_path, "log/access.log"), touch_file=True)
-        import platform
+        gfMakeDirs(os.path.join(global_nginx_path, "log/error.log"), touch_file=True)
+        gfMakeDirs(os.path.join(global_nginx_path, "log/access.log"), touch_file=True)
+        
         if "Ubuntu" in platform.platform():
-            gfMakeDirs(os.path.join(nginx_path, "logs/error.log"), touch_file=True)
-            gfMakeDirs(os.path.join(nginx_path, "logs/access.log"), touch_file=True)
+            gfMakeDirs(os.path.join(global_nginx_path, "logs/error.log"), touch_file=True)
+            gfMakeDirs(os.path.join(global_nginx_path, "logs/access.log"), touch_file=True)
 
         if "redhat" in platform.platform() or "centos" in platform.platform():
             replacedText = ""
@@ -66,7 +68,7 @@ class ReleaseServer(Server):
         gfMakeDirs(path.join(log_path,"supervisor/out.log"), touch_file=True)
 
         return {
-            "command":"/usr/local/bin/python3 ".format(project_path=project_path,django_path=django_path)+path.join(subproject_path,"main/main.py")+" --port="+str(port)+" --log_file_prefix="+tornado_log_path,
+            "command":"python3 ".format(project_path=project_path,django_path=django_path)+path.join(subproject_path,"main/main.py")+" --port="+str(port)+" --log_file_prefix="+tornado_log_path,
             "directory":project_path,
             "user":os.environ["USER"],
             "autorestart":"true",
@@ -92,18 +94,58 @@ class ReleaseServer(Server):
             ]
 
             settingsString = "".join([self.nginxSettingsConfigure(setting) for setting in settings])
-
-            tornadoConfDefaultString = ""
-            with open(path.join(nginx_project_conf_path,project_name.lower()+".conf.template"),"r") as f:
+ 
+            tornadoConfDefaultStringPath = path.join(nginx_project_conf_path,project_name.lower()+".conf.template")
+            global_tornadoConfDefaultStringPath = path.join(global_nginx_project_conf_path,project_name.lower()+".conf.template")
+            with open(tornadoConfDefaultStringPath,"r") as f:
                 f.seek(0)
                 tornadoConfDefaultString = f.read()
 
-            with open(path.join(nginx_project_conf_path, project_name.lower()+".conf"),"w") as f:
+            tornadoConfStringPath = path.join(nginx_project_conf_path, project_name.lower()+".conf")
+            global_tornadoConfStringPath = path.join(global_nginx_project_conf_path, project_name.lower()+".conf")
+            with open(tornadoConfStringPath,"w") as f:
                 tornadoConfString = tornadoConfDefaultString + tornadoUpStreamString
                 f.write(tornadoConfString)
 
-            with open(path.join(self.nginxProjectConfPath, "variable.conf"), "w") as f:
+            variable_path = path.join(nginx_project_conf_path, project_name.lower()+"_variable.conf")
+            global_variable_path = path.join(global_nginx_project_conf_path, project_name.lower()+"_variable.conf")
+            with open(variable_path, "w") as f:
                 f.write(settingsString)
+
+            try:
+                os.remove(global_tornadoConfDefaultStringPath)
+                os.remove(global_tornadoConfStringPath)
+                os.remove(global_variable_path)
+                os.remove(global_nginx_conf_path)
+            except:
+                pass
+
+            copyfile(tornadoConfDefaultStringPath, global_tornadoConfDefaultStringPath)
+            copyfile(tornadoConfStringPath, global_tornadoConfStringPath)
+            copyfile(variable_path, global_variable_path)
+            
+
+            osname = platform.uname()[0]
+
+            conf_string = ""
+            with open(nginx_conf_path, 'r') as f:
+                f.seek(0)
+                conf_string = f.read()
+
+            if conf_string != None and len(conf_string) > 0:
+                if osname == "Darwin":
+                    conf_string = conf_string.replace('epoll', 'kqueue')
+                else:
+                    conf_string = conf_string.replace('kqueue', 'epoll')
+
+            with open(nginx_conf_path, 'w') as f:
+                f.write(conf_string)
+
+            copyfile(nginx_conf_path, global_nginx_conf_path)
+            gfMakeDirs("{global_nginx_path}/nginx_params".format(global_nginx_path=global_nginx_path))
+            os.system("cp -rf {nginx_path}/nginx_params/* {global_nginx_path}/nginx_params/".format(nginx_path=nginx_path, global_nginx_path=global_nginx_path))
+
+
 
         # 配置supervisor
         def supervisorConfigure():
@@ -131,7 +173,7 @@ class ReleaseServer(Server):
                 "master":"true",
                 "pidfile":pidfile,
                 "processes":"8",
-		        "plugin":"/usr/local/lib/uwsgi/py34_plugin.so",
+		        "plugin":"/usr/local/lib/uwsgi/py35_plugin.so",
                 "pythonpath1":pythonpath1,
                 # "pythonpath2":pythonpath2,
                 "pythonpath3":pythonpath3,
@@ -182,7 +224,7 @@ class ReleaseServer(Server):
 
         os.system("uwsgi -x {uwsgi_conf_path};".format(uwsgi_conf_path=path.join(service_profile_path,"uwsgi/{project_name}_profile.xml".format(project_name=django_project_name))))
         # print("self.nginxConfPath:{np},nginx_path:{nginx_path}".format(np=self.nginxConfPath, nginx_path=nginx_path))
-        os.system("sudo nginx -c {conf_path} -p {nginx_path}".format(conf_path=self.nginxConfPath, nginx_path=nginx_path))
+        os.system("sudo nginx -c {conf_path} -p {nginx_path}".format(conf_path=global_nginx_conf_path, nginx_path=global_nginx_path))
 
 
     def killServices(self):
@@ -191,7 +233,6 @@ class ReleaseServer(Server):
     def startServer(self):
         # shell脚本启动服务
         self.killServices()
-
         DatabaseServer().startServer()
         self.startSupervisorMonitor()
         self.startNginxService()

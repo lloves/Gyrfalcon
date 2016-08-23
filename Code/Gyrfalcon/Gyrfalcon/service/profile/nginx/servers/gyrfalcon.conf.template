@@ -17,7 +17,7 @@ server {
 	}
 
 	location /admin {
-		include    uwsgi_params;
+		include    nginx_params/uwsgi_params;
 		uwsgi_pass  $djangoUwsgiPass;
 		client_max_body_size    1000m;
 	}

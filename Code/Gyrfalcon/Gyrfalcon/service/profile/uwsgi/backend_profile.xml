@@ -1,21 +1,21 @@
 <?xml version="1.0" ?>
 <uwsgi>
+	<plugin>/usr/local/lib/uwsgi/py35_plugin.so</plugin>
+	<pidfile>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/service/profile/nginx/pid/nginx.pid</pidfile>
+	<logdate>true</logdate>
+	<memory-report>true</memory-report>
 	<socket>127.0.0.1:8982</socket>
-	<chdir>/Users/yuyang/workspace/project/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend</chdir>
+	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon</pythonpath>
+	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/</pythonpath>
+	<module>wsgi</module>
+	<enable-threads>true</enable-threads>
+	<limit-as>512</limit-as>
+	<listen>80</listen>
+	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/</pythonpath>
 	<master>true</master>
-	<pythonpath>/Users/yuyang/workspace/project/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/</pythonpath>
+	<chdir>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend</chdir>
 	<processes>8</processes>
 	<py-programname>python3</py-programname>
-	<pythonpath>/Users/yuyang/workspace/project/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon</pythonpath>
-	<enable-threads>true</enable-threads>
-	<logdate>true</logdate>
-	<pythonpath>/Users/yuyang/workspace/project/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/</pythonpath>
-	<module>wsgi</module>
-	<plugin>/usr/local/lib/uwsgi/py34_plugin.so</plugin>
+	<daemonize>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/workspace/log/django/django.log</daemonize>
 	<profiler>true</profiler>
-	<limit-as>512</limit-as>
-	<daemonize>/Users/yuyang/workspace/project/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/workspace/log/django/django.log</daemonize>
-	<listen>80</listen>
-	<pidfile>/Users/yuyang/workspace/project/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/service/profile/nginx/pid/nginx.pid</pidfile>
-	<memory-report>true</memory-report>
 </uwsgi>

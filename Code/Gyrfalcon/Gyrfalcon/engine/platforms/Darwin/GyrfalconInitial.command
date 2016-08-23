@@ -120,11 +120,11 @@ g7Install PHP5.6 nginxIns "php -v";
 
 # supervisor安装函数
 function supervisorIns() {
+	
 	if [ ! -f $dirPath/packages/supervisor-3.2.0.tar.gz ]
 	then
 		wget https://pypi.python.org/packages/source/s/supervisor/supervisor-3.2.0.tar.gz -P $dirPath/packages;
 	fi
-
 	tar xvf $dirPath/packages/supervisor-3.2.0.tar.gz -C $dirPath/packages;
 	cd $dirPath/packages/supervisor-3.2.0;
 	sudo python2.7 setup.py install;
@@ -144,9 +144,9 @@ function uwsgiIns() {
 	tar xvf $dirPath/packages/uwsgi-2.0.12.tar.gz -C $dirPath/packages;
 	cd $dirPath/packages/uwsgi-2.0.12/;
 	CPPFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/zlib/include" LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/zlib/lib" CC=gcc python3 uwsgiconfig.py --build;
-	CPPFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/zlib/include" LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/zlib/lib" CC=gcc python3 uwsgiconfig.py --plugin plugins/python core py34;
+	CPPFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/zlib/include" LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/zlib/lib" CC=gcc python3 uwsgiconfig.py --plugin plugins/python core py35;
 	sudo mkdir /usr/local/lib/uwsgi 2>/dev/null;
-	sudo cp -rf ./py34_plugin.so /usr/local/lib/uwsgi;
+	sudo cp -rf ./py35_plugin.so /usr/local/lib/uwsgi;
 	sudo cp -rf ./uwsgi /usr/local/bin;
 	cd ../;
 	sudo rm -rf $dirPath/packages/uwsgi*/;

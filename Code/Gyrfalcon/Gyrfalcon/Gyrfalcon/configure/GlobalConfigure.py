@@ -4,21 +4,35 @@ __author__ = 'yuyang'
 import os
 from os import path
 import sys
+import platform
 
 # 创建目录或者文件
-def gfMakeDirs(path_name, touch_file=False):
+def gfMakeDirs(path_name, touch_file=False, root=False):
 	'''
 	path_name: 对应文件目录名
 	touch_file: 是否创建文件，True=创建文件，False=创建目录
 	'''
-	if len(os.path.splitext(path_name)[1]) > 0:
-		if os.path.exists(os.path.dirname(path_name)) == False:
-			os.makedirs(os.path.dirname(path_name), exist_ok=True)
-		if touch_file == True and os.path.exists(path_name) == False:
-			os.system("touch {path_name}".format(path_name=path_name))
+	sudo = ''
+	if root:
+		sudo = 'sudo'
+
+	if os.path.exists(path_name):
+		return
+		
+	if touch_file == True:
+		os.system("{sudo} touch {path_name}".format(sudo=sudo, path_name=path_name))
 	else:
-		if os.path.exists(path_name) == False:
-			os.makedirs(path_name, exist_ok=True)
+		os.system('{sudo} mkdir -p {path_name}'.format(sudo=sudo, path_name=path_name))
+
+def gfOwnDir(path_name, user=None):
+
+	if user == None:
+		os.system('sudo chown $USER {path_name}'.format(path_name=path_name))
+	else:
+		os.system('sudo chown {user} {path_name}'.format(user=user, path_name=path_name))
+
+def gfModeDir(path_name, mode="755"):
+	os.system('sudo chmod {mode} {path_name}'.format(mode=mode, path_name=path_name))
 
 
 # 是否使用测试模式
@@ -93,6 +107,18 @@ gfMakeDirs(service_path)
 
 ####################### 部署 ###########################
 
+# 公共配置
+global_config_path = "/etc/"+project_name
+gfMakeDirs(global_config_path, root=True)
+gfOwnDir(global_config_path)
+gfModeDir(global_config_path)
+
+# 公共 nginx 配置路径
+global_nginx_path = path.join(global_config_path, "nginx")
+gfMakeDirs(global_nginx_path, root=True)
+gfOwnDir(global_nginx_path)
+gfModeDir(global_nginx_path)
+
 # 服务器配置路径
 service_configure_path = path.join(service_path, "configure")
 gfMakeDirs(service_configure_path)
@@ -105,25 +131,30 @@ gfMakeDirs(service_profile_path)
 log_path = path.join(workspace_path, "log")
 gfMakeDirs(log_path)
 
-# nginx 路径
+# 项目 nginx 配置模板
 nginx_path = path.join(service_profile_path, "nginx")
 gfMakeDirs(nginx_path)
+
 
 # nginx pid 路径
 nginx_pid_path = path.join(nginx_path, "pid")
 gfMakeDirs(nginx_pid_path)
 
 # nginx 主配置文件路径
-import platform
-osname = platform.uname()[0]
-nginx_conf_path = path.join(nginx_path, "nginx.conf")
-if osname == "Darwin":
-	nginx_conf_path = path.join(nginx_path, "nginx_bsd.conf")
-gfMakeDirs(nginx_conf_path)
+nginx_conf_path = path.join(nginx_path, "{project_name}_nginx.conf".format(project_name=project_name))
+gfMakeDirs(nginx_conf_path, touch_file=True)
+
+# nginx 主配置全局文件路径
+global_nginx_conf_path = path.join(global_nginx_path, "{project_name}_nginx.conf".format(project_name=project_name.lower()))
+gfMakeDirs(global_nginx_conf_path, touch_file=True)
 
 # nginx 配置文件路径
-nginx_project_conf_path = path.join(nginx_path, project_name.lower())
+nginx_project_conf_path = path.join(nginx_path, 'servers')
 gfMakeDirs(nginx_project_conf_path)
+
+# nginx 配置通用文件路径
+global_nginx_project_conf_path = path.join(global_nginx_path, 'servers')
+gfMakeDirs(global_nginx_project_conf_path)
 
 # tornado 日志路径
 tornado_log_path = path.join(log_path,"tornado/tornado.log")
