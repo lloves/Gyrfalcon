@@ -25,10 +25,10 @@ NginxSetting = {
     nginxConfPath : nginx_path,
     domainKey : domain,
     nginxErrorLogPath : path.join(global_nginx_path,"log/error.log"),
-    nginxPidPath : path.join(nginx_pid_path,"nginx.pid"),
+    nginxPidPath : path.join(global_nginx_path,"pid/nginx.pid"),
     includePath : path.join(nginx_path,"servers/*.conf"),
 }
 
 gfMakeDirs(NginxSetting[nginxConfPath])
 gfMakeDirs(NginxSetting[nginxErrorLogPath], touch_file=True)
-gfMakeDirs(NginxSetting[nginxPidPath])
+gfMakeDirs(NginxSetting[nginxPidPath], touch_file=True)

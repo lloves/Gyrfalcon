@@ -18,8 +18,10 @@ def gfMakeDirs(path_name, touch_file=False, root=False):
 
 	if os.path.exists(path_name):
 		return
-		
+
 	if touch_file == True:
+		if os.path.exists(os.path.dirname(path_name)) == False:
+			os.makedirs(os.path.dirname(path_name))
 		os.system("{sudo} touch {path_name}".format(sudo=sudo, path_name=path_name))
 	else:
 		os.system('{sudo} mkdir -p {path_name}'.format(sudo=sudo, path_name=path_name))

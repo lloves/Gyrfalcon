@@ -166,7 +166,7 @@ class ReleaseServer(Server):
 
         def adminConfigure():
             admingXmlPath = os.path.join(service_profile_path, "uwsgi/"+django_project_name+"_profile.xml")
-            host = "127.0.0.1"
+            host = django_ip
             port = release_django_port
             listen = 80
             pythonpath1 = project_path  # Gyrfalcon
