@@ -12,19 +12,21 @@ $includePath
 from Gyrfalcon.configure.GlobalConfigure import *
 from service.configure.TornadoNginxSettings import *
 
-nginxConfPath = "$nginxConfPath"
-nginxErrorLogPath = "$nginxErrorLogPath"
-nginxPidPath = "$nginxPidPath"
-nginxUpStreamList = "$nginxUpStreamList"
-includePath = "$includePath"
-rootPath = "$rootPath"
+nginxConfPath = "${product_name}_nginxConfPath".format(product_name=product_name.lower())
+nginxErrorLogPath = "${product_name}_nginxErrorLogPath".format(product_name=product_name.lower())
+nginxPidPath = "${product_name}_nginxPidPath".format(product_name=product_name.lower())
+nginxUpStreamList = "${product_name}_nginxUpStreamList".format(product_name=product_name.lower())
+includePath = "${product_name}_includePath".format(product_name=product_name.lower())
+rootPath = "${product_name}_rootPath".format(product_name=product_name.lower())
+domainKey = "${product_name}_domain".format(product_name=product_name.lower())
 
 NginxSetting = {
     rootPath : project_path,
     nginxConfPath : nginx_path,
-    nginxErrorLogPath : path.join(log_path,"nginx/error.log"),
+    domainKey : domain,
+    nginxErrorLogPath : path.join(global_nginx_path,"log/error.log"),
     nginxPidPath : path.join(nginx_pid_path,"nginx.pid"),
-    includePath : path.join(nginx_path,"gfplatform/*.conf"),
+    includePath : path.join(nginx_path,"servers/*.conf"),
 }
 
 gfMakeDirs(NginxSetting[nginxConfPath])

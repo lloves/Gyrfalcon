@@ -97,27 +97,6 @@ function nginxIns() {
 # 安装nginx
 g7Install NginX nginxIns "nginx -v";
 
-# php安装函数
-function phpIns() {
-	if [ $sysOS == "Darwin" ]
-	then
-		php -v 2>/dev/null 1>/dev/null 0>/dev/null;
-		if [ $? -ne 0 ]
-		then
-			brew tap homebrew/dupes;
-			brew tap homebrew/versions;
-			brew tap homebrew/home$osinstaller-php;
-			brew install php56;
-		fi
-	else
-		$osinstaller php;
-	fi;
-	sudo cp $dirPath/../../../profile/nginx/php/php-fpm.conf /etc/php-fpm.conf;
-	$osinstaller gettext 1>/dev/null;
-}
-# 安装PHP
-g7Install PHP5.6 nginxIns "php -v";
-
 # supervisor安装函数
 function supervisorIns() {
 	
@@ -153,15 +132,6 @@ function uwsgiIns() {
 }
 # 安装uwsgi
 g7Install uwsgi uwsgiIns "uwsgi --version";
-
-
-# bpython安装函数
-function bPythonIns() {
-
-	sudo pip3 install bpython;
-}
-# 安装bPython
-g7Install bPython bPythonIns "bpython -h";
 
 # iPython安装函数
 function iPythonIns() {

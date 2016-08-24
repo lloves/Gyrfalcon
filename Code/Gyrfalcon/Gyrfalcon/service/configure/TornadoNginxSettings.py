@@ -12,15 +12,15 @@ $tornadoMediaPath
 
 from Gyrfalcon.configure.GlobalConfigure import *
 
-tornadoDomains = "$tornadoDomains"
-tornadoRootPath = "$tornadoRootPath"
-tornadoUpStream = "$tornadoUpStream"
-tornadoStaticPath = "$tornadoStaticPath"
-tornadoAdminStaticPath = "$tornadoAdminStaticPath"
-tornadoMediaPath = "$tornadoMediaPath"
+tornadoDomains = "${product_name}_tornadoDomains".format(product_name=product_name.lower())
+tornadoRootPath = "${product_name}_tornadoRootPath".format(product_name=product_name.lower())
+tornadoUpStream = "${product_name}_tornadoUpStream".format(product_name=product_name.lower())
+tornadoStaticPath = "${product_name}_tornadoStaticPath".format(product_name=product_name.lower())
+tornadoAdminStaticPath = "${product_name}_tornadoAdminStaticPath".format(product_name=product_name.lower())
+tornadoMediaPath = "${product_name}_tornadoMediaPath".format(product_name=product_name.lower())
 
-tornadoUpStreamName = "tornadoes"
-tornadoes_ip = "127.0.0.1"
+tornadoUpStreamName = product_name.lower()+"_tornadoes"
+tornadoes_ip = tornado_ip
 tornadoUpStreamList = []
 
 for port in tornado_ports:
@@ -33,7 +33,7 @@ tornadoUpStreamString = "".join([ \
 
 TornadoNginxSetting = {
 
-    tornadoDomains:"localhost",
+    tornadoDomains:tornado_ip,
     tornadoRootPath:path.join(subproject_path,"main/site"),
     tornadoUpStream:tornadoUpStreamName,
     tornadoStaticPath:static_path,

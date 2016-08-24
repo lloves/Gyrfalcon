@@ -24,7 +24,6 @@ class Server:
 class ReleaseServer(Server):
 
     def __init__(self):
-        self.nginxConfPath = nginx_conf_path
         self.nginxProjectConfPath = nginx_project_conf_path
         self.superProjectVisorProjectConfPath = path.join(service_profile_path,"supervisor")
         gfMakeDirs(self.superProjectVisorProjectConfPath)
@@ -66,7 +65,7 @@ class ReleaseServer(Server):
     def supervisorProgramDict(self,port):
         gfMakeDirs(path.join(log_path,"supervisor/error.log"), touch_file=True)
         gfMakeDirs(path.join(log_path,"supervisor/out.log"), touch_file=True)
-
+        
         return {
             "command":"python3 ".format(project_path=project_path,django_path=django_path)+path.join(subproject_path,"main/main.py")+" --port="+str(port)+" --log_file_prefix="+tornado_log_path,
             "directory":project_path,
@@ -94,37 +93,51 @@ class ReleaseServer(Server):
             ]
 
             settingsString = "".join([self.nginxSettingsConfigure(setting) for setting in settings])
- 
-            tornadoConfDefaultStringPath = path.join(nginx_project_conf_path,project_name.lower()+".conf.template")
-            global_tornadoConfDefaultStringPath = path.join(global_nginx_project_conf_path,project_name.lower()+".conf.template")
+            
+            org_tornadoConfDefaultStringPath = path.join(nginx_project_conf_path, project_name.lower()+".conf.template")
+            tornadoConfDefaultStringPath = path.join(nginx_project_conf_path,product_name.lower()+".conf.template")
+            global_tornadoConfDefaultStringPath = path.join(global_nginx_project_conf_path,product_name.lower()+".conf.template")
+            
+            org_tornadoConfStringPath = path.join(nginx_project_conf_path, project_name.lower()+".conf")
+            tornadoConfStringPath = path.join(nginx_project_conf_path, product_name.lower()+".conf")
+            global_tornadoConfStringPath = path.join(global_nginx_project_conf_path, product_name.lower()+".conf")
+            
+            org_variable_path = path.join(nginx_project_conf_path, project_name.lower()+"_variable.conf")
+            variable_path = path.join(nginx_project_conf_path, product_name.lower()+"_variable.conf")
+            global_variable_path = path.join(global_nginx_project_conf_path, product_name.lower()+"_variable.conf")
+            try:
+                os.rename(org_tornadoConfStringPath, tornadoConfStringPath)
+                os.rename(org_variable_path, variable_path)
+
+                if os.path.exists(global_tornadoConfDefaultStringPath):
+                    os.remove(global_tornadoConfDefaultStringPath)
+
+                if os.path.exists(global_tornadoConfStringPath):
+                    os.remove(global_tornadoConfStringPath)
+
+                if os.path.exists(global_variable_path):
+                    os.remove(global_variable_path)
+                
+                if os.path.exists(global_nginx_conf_path):
+                    os.remove(global_nginx_conf_path)
+                
+            except:
+                pass
+
             with open(tornadoConfDefaultStringPath,"r") as f:
                 f.seek(0)
                 tornadoConfDefaultString = f.read()
 
-            tornadoConfStringPath = path.join(nginx_project_conf_path, project_name.lower()+".conf")
-            global_tornadoConfStringPath = path.join(global_nginx_project_conf_path, project_name.lower()+".conf")
             with open(tornadoConfStringPath,"w") as f:
                 tornadoConfString = tornadoConfDefaultString + tornadoUpStreamString
                 f.write(tornadoConfString)
 
-            variable_path = path.join(nginx_project_conf_path, project_name.lower()+"_variable.conf")
-            global_variable_path = path.join(global_nginx_project_conf_path, project_name.lower()+"_variable.conf")
             with open(variable_path, "w") as f:
                 f.write(settingsString)
 
-            try:
-                os.remove(global_tornadoConfDefaultStringPath)
-                os.remove(global_tornadoConfStringPath)
-                os.remove(global_variable_path)
-                os.remove(global_nginx_conf_path)
-            except:
-                pass
-
-            copyfile(tornadoConfDefaultStringPath, global_tornadoConfDefaultStringPath)
             copyfile(tornadoConfStringPath, global_tornadoConfStringPath)
             copyfile(variable_path, global_variable_path)
             
-
             osname = platform.uname()[0]
 
             conf_string = ""
@@ -144,7 +157,6 @@ class ReleaseServer(Server):
             copyfile(nginx_conf_path, global_nginx_conf_path)
             gfMakeDirs("{global_nginx_path}/nginx_params".format(global_nginx_path=global_nginx_path))
             os.system("cp -rf {nginx_path}/nginx_params/* {global_nginx_path}/nginx_params/".format(nginx_path=nginx_path, global_nginx_path=global_nginx_path))
-
 
 
         # 配置supervisor
@@ -173,7 +185,7 @@ class ReleaseServer(Server):
                 "master":"true",
                 "pidfile":pidfile,
                 "processes":"8",
-		        "plugin":"/usr/local/lib/uwsgi/py35_plugin.so",
+                "plugin":"/usr/local/lib/uwsgi/py35_plugin.so",
                 "pythonpath1":pythonpath1,
                 # "pythonpath2":pythonpath2,
                 "pythonpath3":pythonpath3,

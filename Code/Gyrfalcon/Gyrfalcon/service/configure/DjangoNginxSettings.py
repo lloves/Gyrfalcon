@@ -12,18 +12,18 @@ $djangoMediaPath
 
 from Gyrfalcon.configure.GlobalConfigure import *
 
-djangoDomains = "$djangoDomains"
-djangoRootPath = "$djangoRootPath"
-djangoUwsgiPass = "$djangoUwsgiPass"
-djangoStaticPath = "$djangoStaticPath"
-djangoAdminStaticPath = "$djangoAdminStaticPath"
-djangoMediaPath = "$djangoMediaPath"
+djangoDomains = "${product_name}_djangoDomains".format(product_name=product_name.lower())
+djangoRootPath = "${product_name}_djangoRootPath".format(product_name=product_name.lower())
+djangoUwsgiPass = "${product_name}_djangoUwsgiPass".format(product_name=product_name.lower())
+djangoStaticPath = "${product_name}_djangoStaticPath".format(product_name=product_name.lower())
+djangoAdminStaticPath = "${product_name}_djangoAdminStaticPath".format(product_name=product_name.lower())
+djangoMediaPath = "${product_name}_djangoMediaPath".format(product_name=product_name.lower())
 
 DjangoNginxSetting = {
 
-    djangoDomains : "localhost",
+    djangoDomains : django_ip,
     djangoRootPath : path.join(subproject_path,"main/{project_name}".format(project_name=django_project_name)),
-    djangoUwsgiPass : "127.0.0.1:"+str(release_django_port),
+    djangoUwsgiPass : django_ip+":"+str(release_django_port),
     djangoStaticPath : static_path,
     djangoAdminStaticPath : path.join(static_path,"admin"),
     djangoMediaPath : media_path,

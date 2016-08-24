@@ -1,8 +1,17 @@
 # -*- coding: utf-8 -*-
 __author__ = 'yuyang'
 
-from Gyrfalcon.Globals import *
+import sys
 import os
+
+thePath = sys.path
+for p in thePath:
+	if 'Gyrfalcon/Gyrfalcon' in p:
+		sys.path.remove(p)
+		sys.path.insert(0, p)
+
+from Gyrfalcon.Globals import *
+
 def start_shell(filename, command="shell"):
 	shellString = "cd "+django_path+";"+"python3 ./manage.py {command} ".format(command=command)
 	signal = os.system(shellString)

@@ -38,6 +38,14 @@ def gfModeDir(path_name, mode="755"):
 # 是否使用测试模式
 debug = False
 
+######################## IP设置 ########################
+
+# tornado服务的ip地址
+tornado_ip = '127.0.0.1'
+
+# django服务的ip地址
+django_ip = '127.0.0.1'
+
 # 端口
 
 ######################## 测试模式 ########################
@@ -47,7 +55,12 @@ debug_tornado_port = 8984
 #  测试模式下django端口
 debug_django_port = 8981
 
+#  域名
+domain = 'localhost'
+
 ######################## 正式模式 ########################
+
+
 # 正式模式下django端口
 release_django_port = 8982
 
@@ -63,6 +76,9 @@ tornado_ports = [
 
 # 项目名
 project_name = "Gyrfalcon";
+
+# 产品名称
+product_name = "Gyrfalcon";
 
 # 后台名
 django_project_name="backend"
@@ -171,7 +187,7 @@ if debug == False:
 	# 数据库地址
 	dbhost = "localhost"
 	# 数据库名称
-	dbname = "Gyrfalcon"
+	dbname = "Gyrfalcon_tes1"
 	# 数据库用户名
 	dbuser = "Gyrfalcon"
 	# 数据库密码
@@ -179,7 +195,7 @@ if debug == False:
 else:
 ########################### 正式模式 ###########################
 	dbhost = "localhost"
-	dbname = "Gyrfalcon"
+	dbname = "Gyrfalcon_test1"
 	dbuser = "Gyrfalcon"
 	dbpassword = "Gyrfalcon_pwd"
 

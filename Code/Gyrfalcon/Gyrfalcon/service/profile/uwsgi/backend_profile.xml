@@ -1,21 +1,21 @@
 <?xml version="1.0" ?>
 <uwsgi>
-	<plugin>/usr/local/lib/uwsgi/py35_plugin.so</plugin>
-	<pidfile>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/service/profile/nginx/pid/nginx.pid</pidfile>
-	<logdate>true</logdate>
-	<memory-report>true</memory-report>
-	<socket>127.0.0.1:8982</socket>
 	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon</pythonpath>
-	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/</pythonpath>
+	<memory-report>true</memory-report>
 	<module>wsgi</module>
+	<logdate>true</logdate>
+	<processes>8</processes>
+	<profiler>true</profiler>
+	<py-programname>python3</py-programname>
+	<socket>127.0.0.1:8982</socket>
+	<daemonize>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/workspace/log/django/django.log</daemonize>
 	<enable-threads>true</enable-threads>
 	<limit-as>512</limit-as>
-	<listen>80</listen>
-	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/</pythonpath>
-	<master>true</master>
 	<chdir>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend</chdir>
-	<processes>8</processes>
-	<py-programname>python3</py-programname>
-	<daemonize>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/workspace/log/django/django.log</daemonize>
-	<profiler>true</profiler>
+	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/backend/</pythonpath>
+	<pythonpath>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/Gyrfalcon/main/backend/</pythonpath>
+	<master>true</master>
+	<pidfile>/Users/yuyang/workspace/OpenSource/Gyrfalcon/Code/Gyrfalcon/Gyrfalcon/service/profile/nginx/pid/nginx.pid</pidfile>
+	<listen>80</listen>
+	<plugin>/usr/local/lib/uwsgi/py35_plugin.so</plugin>
 </uwsgi>

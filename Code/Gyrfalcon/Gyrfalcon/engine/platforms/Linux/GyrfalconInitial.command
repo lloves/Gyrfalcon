@@ -76,7 +76,7 @@ function pythonIns() {
 	$osinstaller python2-pip;
 	$osinstaller python2-easyinstall;
 }
-# 安装Python3.4.3
+# 安装Python3.5.2
 gfInstall Python2 pythonIns "python2 -V";
 
 # python3安装函数
@@ -89,20 +89,20 @@ function pythonIns() {
   python3 -V 2>/dev/null 1>/dev/null;
   if [ $? -ne 0 ]
   then
-    if [ ! -f $dirPath/packages/Python-3.4.3.tgz ]
+    if [ ! -f $dirPath/packages/Python-3.5.2.tgz ]
     then
-      wget https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz -P $dirPath/packages;
+      wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz -P $dirPath/packages;
     fi
-    tar xvf $dirPath/packages/Python-3.4.3.tgz -C $dirPath/packages;
-    cd $dirPath/packages/Python-3.4.3;
+    tar xvf $dirPath/packages/Python-3.5.2.tgz -C $dirPath/packages;
+    cd $dirPath/packages/Python-3.5.2;
     ./configure;
     sudo make && sudo make install;
     cd $dirPath;
-    sudo rm -rf $dirPath/packages/Python-3.4.3;
+    sudo rm -rf $dirPath/packages/Python-3.5.2;
   fi
 }
-# 安装Python3.4.3
-gfInstall Python3.4.3 pythonIns "python3 -V";
+# 安装Python3.5.2
+gfInstall Python3.5.2 pythonIns "python3 -V";
 
 # mysql安装函数
 function mysqlIns() {
@@ -163,13 +163,6 @@ function uwsgiIns() {
 # 安装uwsgi
 gfInstall uwsgi uwsgiIns "uwsgi --version";
 
-# bpython安装函数
-function bPythonIns() {
-
-  sudo /usr/local/bin/pip3 install bpython;
-}
-# 安装bPython
-gfInstall bPython bPythonIns "bpython -h";
 
 # iPython安装函数
 function iPythonIns() {
