@@ -106,7 +106,7 @@ class ReleaseServer(Server):
 
             settingsString = "".join([self.nginxSettingsConfigure(setting) for setting in settings])
             
-            org_tornadoConfDefaultStringPath = path.join(nginx_project_conf_path, project_name.lower()+".conf.template")
+            org_tornadoConfDefaultStringPath = path.join(nginx_project_conf_path, product_name.lower()+".conf.template")
             tornadoConfDefaultStringPath = path.join(nginx_project_conf_path,product_name.lower()+".conf.template")
             global_tornadoConfDefaultStringPath = path.join(global_nginx_project_conf_path,product_name.lower()+".conf.template")
             
