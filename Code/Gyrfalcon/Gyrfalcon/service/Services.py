@@ -33,12 +33,24 @@ class ReleaseServer(Server):
         if "Ubuntu" in platform.platform():
             gfMakeDirs(os.path.join(global_nginx_path, "logs/error.log"), touch_file=True)
             gfMakeDirs(os.path.join(global_nginx_path, "logs/access.log"), touch_file=True)
-
-        if "redhat" in platform.platform() or "centos" in platform.platform():
+        else:
             replacedText = ""
-            with open(nginx_conf_path, "r") as f:
+            with open(nginx_conf_template_path, "r") as f:
                 import getpass
-                replacedText = f.read().replace("#user  www-data;", "user  {user};".format(user=getpass.getuser()))
+                readLines = f.readlines()
+                f.seek(0)
+                readString = f.read()
+                orgLine = ""
+                newLine = ""
+                extString = ""
+                for line in readLines:
+                    if "user" in line:
+                        orgLine = line
+                        newLine = "user {user} wheel;".format(user=getpass.getuser())
+                        extString = readString.split(orgLine)[-1]
+                        break;
+
+                replacedText = newLine+"\n"+extString
 
             with open(nginx_conf_path, "w") as f:
                 f.write(replacedText)

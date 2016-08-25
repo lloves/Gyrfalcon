@@ -159,8 +159,13 @@ nginx_pid_path = path.join(nginx_path, "pid")
 gfMakeDirs(nginx_pid_path)
 
 # nginx 主配置文件路径
-nginx_conf_path = path.join(nginx_path, "{project_name}_nginx.conf".format(project_name=project_name))
+nginx_conf_path = path.join(nginx_path, "{project_name}_nginx.conf".format(project_name=project_name.lower()))
 gfMakeDirs(nginx_conf_path, touch_file=True)
+
+# nginx 主配置模板文件路径
+nginx_conf_template_path = path.join(nginx_path, "{project_name}_nginx_template.conf".format(project_name=project_name.lower()))
+gfMakeDirs(nginx_conf_template_path, touch_file=True)
+
 
 # nginx 主配置全局文件路径
 global_nginx_conf_path = path.join(global_nginx_path, "{project_name}_nginx.conf".format(project_name=project_name.lower()))
@@ -200,7 +205,6 @@ else:
 	dbname = "Gyrfalcon_test1"
 	dbuser = "Gyrfalcon"
 	dbpassword = "Gyrfalcon_pwd"
-
 
 ######################## 其他 ###############################
 # des加密密码
