@@ -14,7 +14,7 @@ sysOS=`uname -s`;
 # $1 软件名
 # $2 安装函数
 # $3 检测软件的shell语句
-function g7Install() {
+function gfInstall() {
 	echo " 检测 [ $1 ]...";
 	eval $3 1>/dev/null 2>/dev/null;
 	if [ $? -ne 0 ]
@@ -34,14 +34,14 @@ function brewIns() {
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 }
 # 安装Brew
-g7Install Brew brewIns "brew -v";
+gfInstall Brew brewIns "brew -v";
 
 # wget安装函数
 function wgetIns() {
 	$osinstaller wget;
 }
 # 安装wget
-g7Install wget wgetIns "wget --help";
+gfInstall wget wgetIns "wget --help";
 
 # python安装函数
 function pythonIns() {
@@ -56,17 +56,17 @@ function pythonIns() {
 	fi
 }
 # 安装Python3.4.3
-g7Install Python3 pythonIns "python3 -V";
+gfInstall Python3 pythonIns "python3 -V";
 
 # mysql安装函数
 function mysqlIns() {
-	mysqlUrl="http://cdn.mysql.com//Downloads/MySQL-5.6/mysql-5.6.28-linux-glibc2.5-x86_64.tar.gz";
+	mysqlUrl="http://cdn.mysql.com//Downloads/MySQL-5.6/mysql-5.6.32-linux-glibc2.5-x86_64.tar.gz";
 	if [ $sysOS == "Darwin" ]
 	then
-		mysqlUrl="http://cdn.mysql.com//Downloads/MySQL-5.6/mysql-5.6.28-osx10.10-x86_64.tar.gz";
+		mysqlUrl="http://cdn.mysql.com//Downloads/MySQL-5.6/mysql-5.6.32-osx10.11-x86_64.tar.gz";
 	fi
 
-	if [ ! -f $dirPath/packages/mysql-5.6.28-osx10.10-x86_64.tar.gz ]
+	if [ ! -f $dirPath/packages/mysql-5.6.32-osx10.11-x86_64.tar.gz ]
 	then
 		wget -P $dirPath/packages $mysqlUrl;
 	fi
@@ -74,8 +74,8 @@ function mysqlIns() {
 	sudo rm -rf /usr/local/mysql*;
 	sudo rm -rf /usr/local/lib/libmysql*;
 	sudo rm -rf /usr/local/bin/mysql*;
-	sudo tar xvf $dirPath/packages/mysql-5.6.28-osx10.10-x86_64.tar.gz -C /usr/local/;
- 	sudo mv /usr/local/mysql-5.6.28-osx10.10-x86_64/ /usr/local/mysql;
+	sudo tar xvf $dirPath/packages/mysql-5.6.32-osx10.11-x86_64.tar.gz -C /usr/local/;
+ 	sudo mv /usr/local/mysql-5.6.32-osx10.11-x86_64/ /usr/local/mysql;
 	sudo ln -sv /usr/local/mysql/bin/mysql* /usr/local/bin;
 	sudo ln -sv /usr/local/mysql/lib/libmysql* /usr/local/lib;
 	sudo ln -sv /usr/local/mysql/support-files/mysql.server /usr/local/bin/;
@@ -84,7 +84,7 @@ function mysqlIns() {
 	./scripts/mysql_install_db --user=$USER --basedir=/usr/local/mysql;
 }
 # 安装Mysql5.6
-g7Install MySQL5.6 mysqlIns "mysql --help";
+gfInstall MySQL5.6 mysqlIns "mysql --help";
 
 # nginx安装函数
 function nginxIns() {
@@ -95,15 +95,16 @@ function nginxIns() {
 	$osinstaller nginx;
 }
 # 安装nginx
-g7Install NginX nginxIns "nginx -v";
+gfInstall NginX nginxIns "nginx -v";
+
 
 # supervisor安装函数
 function supervisorIns() {
-	
 	if [ ! -f $dirPath/packages/supervisor-3.2.0.tar.gz ]
 	then
 		wget https://pypi.python.org/packages/source/s/supervisor/supervisor-3.2.0.tar.gz -P $dirPath/packages;
 	fi
+
 	tar xvf $dirPath/packages/supervisor-3.2.0.tar.gz -C $dirPath/packages;
 	cd $dirPath/packages/supervisor-3.2.0;
 	sudo python2.7 setup.py install;
@@ -111,7 +112,7 @@ function supervisorIns() {
 	sudo rm -rf $dirPath/packages/supervisor-3.2.0/;
 }
 # 安装supervisor
-g7Install Supervisor3.2.0 supervisorIns "supervisord -v";
+gfInstall Supervisor3.2.0 supervisorIns "supervisord -v";
 
 # uwsgi安装函数
 function uwsgiIns() {
@@ -131,7 +132,10 @@ function uwsgiIns() {
 	sudo rm -rf $dirPath/packages/uwsgi*/;
 }
 # 安装uwsgi
-g7Install uwsgi uwsgiIns "uwsgi --version";
+gfInstall uwsgi uwsgiIns "uwsgi --version";
+
+# 安装bPython
+gfInstall bPython bPythonIns "bpython -h";
 
 # iPython安装函数
 function iPythonIns() {
@@ -139,7 +143,7 @@ function iPythonIns() {
 	sudo pip3 install ipython;
 }
 # 安装iPython
-g7Install iPython iPythonIns "ipython -h";
+gfInstall iPython iPythonIns "ipython -h";
 
 # tornado安装函数
 function tornadoIns() {
@@ -147,7 +151,7 @@ function tornadoIns() {
 	sudo pip3 install tornado==4.2;
 }
 # 安装tornado
-g7Install tornado tornadoIns "python3 -c \"import tornado\"";
+gfInstall tornado tornadoIns "python3 -c \"import tornado\"";
 
 # django安装函数
 function djangoIns() {
@@ -155,7 +159,7 @@ function djangoIns() {
 	sudo pip3 install django==1.9.1;
 }
 # 安装django
-g7Install django djangoIns "python3 -c \"import django\"";
+gfInstall django djangoIns "python3 -c \"import django\"";
 
 # django安装函数
 function djangoAdminIns() {
@@ -163,7 +167,7 @@ function djangoAdminIns() {
 	sudo sed -e 's/python/python3/' /usr/local/lib/python*/site-packages/django/bin/django-admin.py > /usr/local/bin/django-admin;
 }
 # 安装django
-g7Install django-admin djangoAdminIns "django-admin";
+gfInstall django-admin djangoAdminIns "django-admin";
 
 
 # torndb安装函数
@@ -175,7 +179,7 @@ torndbTgt="";
 sudo sed -i -e "s/$torndbOrg/$torndbTgt/g" /usr/local/lib/python3*/site-packages/torndb.py;
 }
 # 安装torndb
-g7Install torndb torndbIns "python3 -c \"import torndb\"";
+gfInstall torndb torndbIns "python3 -c \"import torndb\"";
 
 # pillow安装函数
 function pillowIns() {
@@ -183,7 +187,7 @@ function pillowIns() {
 	sudo pip3 install pillow==3.1.0;
 }
 # 安装pillow
-g7Install pillow pillowIns "python3 -c \"from PIL import Image\"";
+gfInstall pillow pillowIns "python3 -c \"from PIL import Image\"";
 
 echo "启动数据库...";
 mysql.server start;
@@ -193,7 +197,7 @@ function mySQLdbIns() {
 	DYLD_LIBRARY_PATH="/usr/local/mysql/lib:-L/usr/local/mysql/lib/" sudo pip3 install $dirPath/packages/MySQL-for-Python-3.zip;
 }
 # 安装MySQLdb
-g7Install MySQLdb mySQLdbIns "python3 -c \"import MySQLdb\"";
+gfInstall MySQLdb mySQLdbIns "python3 -c \"import MySQLdb\"";
 
 # pycrypto 安装函数
 function pycryptoIns() {
@@ -201,7 +205,7 @@ function pycryptoIns() {
 }
 
 # 安装pycrypto
-g7Install pycrypto pycryptoIns "python3 -c \"import Crypto\""
+gfInstall pycrypto pycryptoIns "python3 -c \"import Crypto\""
 
 
 # pyDes 安装函数
@@ -210,7 +214,43 @@ function pyDesIns() {
 }
 
 # 安装pyDes
-g7Install pyDesIns pyDesIns "python3 -c \"import pyDes\""
+gfInstall pyDesIns pyDesIns "python3 -c \"import pyDes\""
+
+# tushare 安装函数
+function tushareIns() {
+	brew install libxml2;
+	C_INCLUDE_PATH=/usr/local/opt/libxml2/include/libxml2 sudo pip3 install lxml;
+	sudo pip3 install pandas;
+	sudo pip3 install tushare;
+}
+
+# 安装tushare
+gfInstall tushare tushareIns "python3 -c \"import tushare\""
+
+
+# scrapy 安装函数
+function scrapyIns() {
+	brew install libxml2;
+	C_INCLUDE_PATH=/usr/local/opt/libxml2/include/libxml2 sudo pip3 install scrapy;
+}
+
+# 安装scrapy
+gfInstall scrapy scrapyIns "scrapy 2>/dev/null;";
+
+
+# BeautifulSoap4 安装函数
+function beautifulSoap4Ins() {
+	sudo pip3 install BeautifulSoap4;
+}
+
+# 安装BeautifulSoap4
+gfInstall BeautifulSoap4 beautifulSoap4Ins "python3 -c \"import bs4\"";
+
+function pytzIns() {
+	sudo pip3 install pytz;
+}
+gfInstall pytz pytzIns "python3 -c \"import pytz\""
+
 
 echo "初始化环境完成, 重置服务"
 sh $dirPath/GyrfalconStop.command;
@@ -221,9 +261,5 @@ if [ $? -ne 0 ]
 then
 	echo "数据库服务打开失败";
 fi
-
-echo "初始化服务";
-export PYTHONPATH=$(cd $dirPath/../../../../; pwd)/Gyrfalcon;python3 $dirPath/../../tools/djangoinitial.py;
-echo "服务初始化完成";
 
 sh $dirPath/GyrfalconStart.command;
