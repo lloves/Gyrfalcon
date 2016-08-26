@@ -271,7 +271,7 @@ class DebugServer(Server):
 
     def djangoServerStart(self,port):
         manage_path = path.join(django_path, "manage.py")
-        os.system("python3 {manage_path} runserver 0.0.0.0:{debug_django_port}".format(project_path=project_path,django_path=django_path,manage_path=manage_path,debug_django_port=port))
+        os.system("python3 {manage_path} runserver 0.0.0.0:{debug_django_port} &".format(project_path=project_path,django_path=django_path,manage_path=manage_path,debug_django_port=port))
 
     def startServer(self):
         #启动配置，
